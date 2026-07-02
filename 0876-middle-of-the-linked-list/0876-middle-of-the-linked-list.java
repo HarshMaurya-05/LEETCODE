@@ -4,9 +4,6 @@ class Solution {
         if (head == null)
             return null;
 
-        if (head.next == null)
-            return head;
-
         ListNode slow = head;
         ListNode fast = head;
 
