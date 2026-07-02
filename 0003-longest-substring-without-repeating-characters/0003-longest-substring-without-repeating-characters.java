@@ -3,19 +3,20 @@ import java.util.*;
 class Solution {
     public int lengthOfLongestSubstring(String s) {
 
+        HashMap<Character, Integer> map = new HashMap<>();
+
         int low = 0;
         int ans = 0;
 
-        HashSet<Character> set = new HashSet<>();
-
         for (int high = 0; high < s.length(); high++) {
 
-            while (set.contains(s.charAt(high))) {
-                set.remove(s.charAt(low));
-                low++;
+            char ch = s.charAt(high);
+
+            if (map.containsKey(ch)) {
+                low = Math.max(low, map.get(ch) + 1);
             }
 
-            set.add(s.charAt(high));
+            map.put(ch, high);
 
             ans = Math.max(ans, high - low + 1);
         }
