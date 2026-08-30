@@ -20,8 +20,13 @@ class Solution {
 
             for (int pile : piles) {
 
-                totalHours += (pile + (long) mid - 1) / mid;
+long hours = pile / mid;
 
+if (pile % mid != 0) {
+    hours++;
+}
+
+totalHours += hours;
                 // Optional optimization
                 if (totalHours > h) {
                     break;
